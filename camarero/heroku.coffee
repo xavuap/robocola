@@ -27,7 +27,9 @@
 			morosudo:
 				token: "e93f8b23-2561-4c10-bfa7-1b30290d82c8"
 				horario: ({mes})-> mes is "marzo"
-				hosts: morosudo: "carulosu"
+				hosts:
+					morosudo: "carulosu"
+					robocoli: "robocola"
 		local: not process.env.NODE_HOME?
 	) ({nimi,kind,local})-> g.c(
 		nome: nimi
