@@ -2,13 +2,14 @@
 
 	module.exports = (g)-> ({dame})->g.c(
 		nimi: process.env.HEROKU_APP_NAME
-		kind:
+		kinds:
 			carulosu:
 				token: "6c0a007e-36f2-4e96-9407-9f0f99dc04ef"
 				horario: ({semanario,mes})-> 
 					#mes isnt "febrero" and 
 					# mes is "marzo" or 
 					not (51630 > semanario > 1705)
+					no
 				hosts: 
 					robocolo: "robocola"
 					auyama: "radicalia"
@@ -19,6 +20,7 @@
 				horario: ({semanario,mes})-> 
 					# mes is "febrero" or not 
 					(51630 > semanario > 1705)
+					no
 				hosts:
 					robocola: "robocolo"
 					radicalia: "auyama"
@@ -26,17 +28,18 @@
 					usolurac: "carulosu"
 			morosudo:
 				token: "e93f8b23-2561-4c10-bfa7-1b30290d82c8"
-				horario: ({mes})-> mes is "marzo"
+				horario: ({mes})-> mes is "abril" # "marzo"
 				hosts:
 					morosudo: "carulosu"
 					robocoli: "robocola"
+					cambur: 
 		local: not process.env.NODE_HOME?
-	) ({nimi,kind,local})-> g.c(
+	) ({nimi,kinds,local})-> g.c(
 		nome: nimi
-		gente: (ki)->(nome=nimi)-> g.c(
+		gente: (ki)-> g.c(
 			heroku: new (require("heroku-client"))
-				token: g.s("token") g.s(ki) kind
-		) ({heroku})->
+				token: g.s("token") g.s(ki) kinds
+		) ({heroku})-> (nome=nimi)->
 			refresco: (dyno="")->({fina,erro})-> # (fina)->(erro)->
 				heroku.delete("/apps/#{nome}/dynos/#{dyno}").then [fina,erro]...
 			para: (dyno="web")->({fina,erro})->
@@ -59,9 +62,25 @@
 				"http://localhost:#{porto}"
 			else
 				"https://#{nimi}.herokuapp.com"
-	) ({nome,gente,url})->
+		familia: g.c() ->
+			for ki in kinds
+				if nome in kinds[ki].hosts
+					return ki
+	) ({nome,gente,url,familia})-> g.c(
+		duerme: ({kind,gente,puedo})->
+			for host of kinds[kind].hosts
+				gente(host).presta(web:0,bot:0)
+					fina: (re)->
+						g.m "#{host} dormido"
+					erro: (er)->
+						g.m {er}
+						g.m "no se durmió #{host}"
+						g.pera(60*1000) ->
+							puedo()
+	) ({duerme})->
 		gente: gente
 		nome: nome
+		familia: familia
 		version: process.env.HEROKU_RELEASE_VERSION
 		url: url
 		local: local
@@ -74,7 +93,24 @@
 						dame("#{url()}/#{dónde}").toca erro: ->
 							g.m "tocando"
 							g.pera(60*1000) vive
-		vive: (horas)-> unless local then g.c(
+		vive: -> g.c(
+			hogar: gente(familia)
+		) ({hogar})->
+			g.cronica(10*60*1000) g.r (puedo)-> -> g.tempo(hora: -4) (tempo)->
+				for kind of kinds
+					unless nome of kinds[kind].hosts
+						unless kinds[kind].horario(tempo)
+							duerme
+								kind: kind
+								gente: hogar
+					else
+						reino = kind
+				unless kinds[reino].horario(tempo)
+					duerme
+						kind: reino
+						gente: hogar
+				else puedo()
+		viv: (horas)-> unless local then g.c(
 			(ki)-> 
 				g.c(Object.entries(ki)[0]) ([quién,nombre])-> {
 					nome: nombre
