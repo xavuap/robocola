@@ -2,7 +2,7 @@
 
 	module.exports = (g)-> ({dame})->g.c(
 		nimi: process.env.HEROKU_APP_NAME
-		kinds:
+		kind:
 			carulosu:
 				token: "6c0a007e-36f2-4e96-9407-9f0f99dc04ef"
 				horario: ({semanario,mes})-> 
@@ -34,11 +34,11 @@
 					robocoli: "robocola"
 					cambur: ["radicalia","auyama"]
 		local: not process.env.NODE_HOME?
-	) ({nimi,kinds,local})-> g.c(
+	) ({nimi,kind,local})-> g.c(
 		nome: nimi
 		gente: (ki)-> g.c(
 			heroku: new (require("heroku-client"))
-				token: g.s("token") g.s(ki) kinds
+				token: g.s("token") g.s(ki) kind
 		) ({heroku})-> (nome=nimi)->
 			refresco: (dyno="")->({fina,erro})-> # (fina)->(erro)->
 				heroku.delete("/apps/#{nome}/dynos/#{dyno}").then [fina,erro]...
