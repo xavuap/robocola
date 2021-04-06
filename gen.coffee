@@ -255,7 +255,7 @@
 				claudia
 			else
 				claudia = valeria
-		valeria: (claudia)->(fina)->
+		valeria: (claudia)->(fina)-> # (fina)-> fina(ki,moro)
 			g.claudia(
 				(meme)-> (valeria)->
 					unless valeria?
@@ -265,7 +265,13 @@
 			) fina
 		valeria: # (valeria)->
 			g.r (meme)-> (claudia)->
-				
+		valeria: (jeto)-> (llave)-> (argos...)-> (fina)-> 
+			# argo fina llave jeto
+			# better
+			# jeto llave argos... fina # for curryfication
+			unless jeto[llave]?
+				jeto[llave] = fina argos...
+			jeto[llave]
 		ki: -> g.claudia({}) (claudia)->(ki)-> (valeria)->
 			unless claudia[ki]?
 				claudia[ki] = valeria

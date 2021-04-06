@@ -32,7 +32,7 @@
 				hosts:
 					morosudo: "carulosu"
 					robocoli: "robocola"
-					cambur: 
+					cambur: ["radicalia","auyama"]
 		local: not process.env.NODE_HOME?
 	) ({nimi,kinds,local})-> g.c(
 		nome: nimi
@@ -62,11 +62,11 @@
 				"http://localhost:#{porto}"
 			else
 				"https://#{nimi}.herokuapp.com"
-		familia: g.c() ->
+		familias: (nome)-> # g.c() ->
 			for ki in kinds
 				if nome in kinds[ki].hosts
 					return ki
-	) ({nome,gente,url,familia})-> g.c(
+	) ({nome,gente,url,familias})-> g.c(
 		duerme: ({kind,gente,puedo})->
 			for host of kinds[kind].hosts
 				gente(host).presta(web:0,bot:0)
@@ -77,10 +77,11 @@
 						g.m "no se durmió #{host}"
 						g.pera(60*1000) ->
 							puedo()
-	) ({duerme})->
+		ci: familias nome
+	) ({duerme,ci})->
 		gente: gente
 		nome: nome
-		familia: familia
+		familia: ci
 		version: process.env.HEROKU_RELEASE_VERSION
 		url: url
 		local: local
@@ -93,7 +94,7 @@
 						dame("#{url()}/#{dónde}").toca erro: ->
 							g.m "tocando"
 							g.pera(60*1000) vive
-		vive: -> g.c(
+		viv: -> g.c(
 			hogar: gente(familia)
 		) ({hogar})->
 			g.cronica(10*60*1000) g.r (puedo)-> -> g.tempo(hora: -4) (tempo)->
@@ -110,28 +111,33 @@
 						kind: reino
 						gente: hogar
 				else puedo()
-		viv: (horas)-> unless local then g.c(
-			(ki)-> 
-				g.c(Object.entries(ki)[0]) ([quién,nombre])-> {
-					nome: nombre
-					horario: g.s("horario") g.s(quién) kind
-					gente(quién)(nombre)...
-				}
-		) (ki)-> g.c(
-			me: if nome of kind.morosudo.hosts then ki {morosudo: nome} else if nome of kind.carulosu.hosts then ki {carulosu: nome} else ki {xavuap: nome}
-			tu: if nome of kind.morosudo.hosts then ki {carulosu: kind.morosudo.hosts[nome] } else if nome of kind.xavuap.hosts then ki {carulosu: kind.xavuap.hosts[nome]} else ki {xavuap: kind.carulosu.hosts[nome]}
-			# le: if nome of kind.
-			# me: 
-		) ({me,tu})->
-			g.m me: me.nome
-			g.m tu: tu.nome
+		vive: (horas)-> 
+			for ki of kind
+				# kind[ki].gente = gente(ki)
+				# argo fina llave jeto
+				g.valeria(kind)(ki)(ki)(gente)
 			g.cronica(horas*60*60*1000) g.r (puedo)-> ->
+				g.tempo(hora:-4) (horario)->
+					for ki of kind
+						for fio of kind[ki].hosts then g.c(kind[ki].horario horario) (horario)->
+							kind[ki].gente(fio).presta( bot: g.s(horario) {true:1,false:0} )
+								fina: (re)->
+									if horario
+										g.m "revisame en #{fio} de #{ki}"
+									else
+										g.m "#{fio} de #{ki} dormido"
+								erro: (er)->
+									g.m {er}
+									g.m "algo mal en #{fio} de #{ki}"
+									g.pera(60*1000) ->
+										puedo()
+			if no then g.cronica(horas*60*60*1000) g.r (puedo)-> ->
 				g.tempo(hora:-4) ({feira,reloj,semanario,mes})->
 					g.m {semanario,mes}
 					# if tu.horario {semanario,mes}
 					if me.horario {semanario,mes}
 						tu.presta(bot: 0)
-							fina: (re)->
+							fina: (re,tu)->
 								g.m "#{tu.nome} dormido"
 							erro: (er)->
 								g.m {er}
@@ -139,13 +145,13 @@
 								g.pera(60*1000) ->
 									puedo()
 					else
-						tu.presta(bot: 1)
+						vi(bot: 1)
 							fina: (re)->
 								# g.m {re}
 								g.m "todo bien"
 								# if no
 								me.presta(bot: 0) # , web:0)
-									fina: (re)->
+									fina: (re,tu)->
 										g.m "adiós"
 										g.m "revisame en #{tu.nome}"
 										# telebot.stop()
