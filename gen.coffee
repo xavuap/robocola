@@ -250,12 +250,12 @@
 		# 		booleana = no
 		# 		valeria = juana argos...
 		# 	valeria
-		valeria: (claudia)-> (valeria)-> # asignación
+		valera: (claudia)-> (valeria)-> # asignación
 			unless valeria?
 				claudia
 			else
 				claudia = valeria
-		valeria: (claudia)->(fina)-> # (fina)-> fina(ki,moro)
+		valeri: (claudia)->(fina)-> # (fina)-> fina(ki,moro)
 			g.claudia(
 				(meme)-> (valeria)->
 					unless valeria?
@@ -263,7 +263,7 @@
 					else
 						meme valeria
 			) fina
-		valeria: # (valeria)->
+		aleria: # (valeria)->
 			g.r (meme)-> (claudia)->
 		valeria: (jeto)-> (llave)-> (argos...)-> (fina)-> 
 			# argo fina llave jeto
