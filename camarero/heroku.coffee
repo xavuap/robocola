@@ -13,8 +13,8 @@
 				hosts: 
 					robocolo: "robocola"
 					auyama: "radicalia"
-					yaguara: "araugay"
-					carulosu: "usolurac"
+					# yaguara: "araugay"
+					# carulosu: "usolurac"
 			xavuap:
 				token: "a00b0637-fae6-42e0-8829-2a3604d315fa"
 				horario: ({semanario,mes})-> 
@@ -24,13 +24,13 @@
 				hosts:
 					robocola: "robocolo"
 					radicalia: "auyama"
-					araugay: "yaguara"
-					usolurac: "carulosu"
+					# araugay: "yaguara"
+					# usolurac: "carulosu"
 			morosudo:
 				token: "e93f8b23-2561-4c10-bfa7-1b30290d82c8"
 				horario: ({mes})-> mes is "abril" # "marzo"
 				hosts:
-					morosudo: "carulosu"
+					# morosudo: "carulosu"
 					robocoli: "robocola"
 					cambur: ["radicalia","auyama"]
 		local: not process.env.NODE_HOME?
