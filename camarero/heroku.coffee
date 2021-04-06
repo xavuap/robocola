@@ -81,7 +81,8 @@
 			for ki of kind
 				# kind[ki].gente = gente(ki)
 				# argo fina llave jeto
-				g.valeria(kind)(ki)(ki)(gente)
+				g.valeria(kind[ki])("gente")(ki)(gente)
+				# g.valeria(kind)(ki)(ki)(gente)
 			g.cronica(horas*60*60*1000) g.r (puedo)-> ->
 				g.tempo(hora:-4) (horario)->
 					for ki of kind
