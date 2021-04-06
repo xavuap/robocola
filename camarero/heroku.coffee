@@ -87,8 +87,9 @@
 				g.tempo(hora:-4) (horario)->
 					for ki of kind
 						g.valeria(kind[ki])("gente")(ki)(gente)
-						g.mostra g.n(ki) g.tetas kind[ki].gente
+						# g.mostra g.n(ki) g.tetas kind[ki].gente
 						for fio of kind[ki].hosts then g.c(kind[ki].horario horario) (horario)->
+							g.m g.n(ki) fio
 							unless horario and fio is nome
 								kind[ki].gente(fio).presta( bot: g.s(horario) {true:1,false:0} )
 									fina: (re)->
