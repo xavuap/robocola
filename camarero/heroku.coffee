@@ -83,25 +83,31 @@
 			# 	# argo fina llave jeto
 			# 	g.valeria(kind[ki])("gente")(ki)(gente)
 			# 	# g.valeria(kind)(ki)(ki)(gente)
-			g.cronica(horas*60*60*1000) g.r (puedo)-> ->
+			g.cronica(horas*60*60*1000) -> # g.r (puedo)->
 				g.tempo(hora:-4) (horario)->
-					for ki of kind
+					# for ki of kind
+					g.c(Object.keys(kind)...) g.r (fina)-> (ki,kinds...)-> 
+						fina kinds... if kinds.length
 						g.valeria(kind[ki])("gente")(ki)(gente)
 						# g.mostra g.n(ki) g.tetas kind[ki].gente
-						for fio of kind[ki].hosts then g.c(kind[ki].horario horario) (horario)->
-							g.m g.n(ki) fio
-							unless horario and fio is nome
-								kind[ki].gente(fio).presta( bot: g.s(horario) {true:1,false:0} )
-									fina: (re)->
-										if horario
-											g.m "revisame en #{fio} de #{ki}"
-										else
-											g.m "#{fio} de #{ki} dormido"
-									erro: (er)->
-										g.m {er}
-										g.m "algo mal en #{fio} de #{ki}"
-										g.pera(60*1000) ->
-											puedo()
+						g.c(kind[ki].horario horario) (horario)->
+							# for fio of kind[ki].hosts
+							g.c(Object.keys(kind[ki].hosts)...) g.r (nesta)-> (fio,fios...)->
+								g.m g.n(ki) fio
+								unless horario and fio is nome
+									kind[ki].gente(fio).presta( bot: g.s(horario) {true:1,false:0} )
+										fina: (re)->
+											if horario
+												g.m "revisame en #{fio} de #{ki}"
+											else
+												g.m "#{fio} de #{ki} dormido"
+											nesta fios... if fios.length
+										erro: (er)->
+											g.m {er}
+											g.m "algo mal en #{fio} de #{ki}"
+											g.pera(60*1000) ->
+												nesta fio,fios...
+												# puedo()
 			if no then g.cronica(horas*60*60*1000) g.r (puedo)-> ->
 				g.tempo(hora:-4) ({feira,reloj,semanario,mes})->
 					g.m {semanario,mes}

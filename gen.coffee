@@ -299,6 +299,8 @@
 				unless claudia[ki]?
 					claudia[ki] = fina ki
 				claudia[ki]
+		itera: (fina)->
+			
 		# juanas: (argos...)-> g.claudia(on) (booleana)-> ({juana,siempre})-> # juana de argos
 		# 	if booleana
 		# 		booleana = no
