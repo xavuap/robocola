@@ -85,6 +85,7 @@
 			g.cronica(horas*60*60*1000) g.r (puedo)-> ->
 				g.tempo(hora:-4) (horario)->
 					for ki of kind
+						g.mostra g.tetas kind.ki.gente
 						for fio of kind[ki].hosts then g.c(kind[ki].horario horario) (horario)->
 							kind[ki].gente(fio).presta( bot: g.s(horario) {true:1,false:0} )
 								fina: (re)->
