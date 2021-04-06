@@ -54,7 +54,8 @@
 				heroku.get("/apps/#{nome}/formation").then [fina,erro]...
 			presta: (gente)->({fina,erro})->
 				heroku.patch("/apps/#{nome}/formation",{
-					body: g.m updates: for p of gente then {type:p,quantity: gente[p]} # [{type:type,quantity:1}]}
+					#g.m v
+					body: updates: for p of gente then {type:p,quantity: gente[p]} # [{type:type,quantity:1}]}
 				}).then [fina,erro]...
 			# scale: ->
 		url: (porto)->
@@ -93,7 +94,7 @@
 						g.c(kind[ki].horario horario) (horario)->
 							# for fio of kind[ki].hosts
 							g.c(Object.keys(kind[ki].hosts)...) g.r (nesta)-> (fio,fios...)->
-								g.m g.n(ki) fio
+								# g.m g.n(ki) fio
 								unless horario and fio is nome
 									kind[ki].gente(fio).presta( bot: g.s(horario) {true:1,false:0} )
 										fina: (re)->
