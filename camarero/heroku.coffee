@@ -62,26 +62,9 @@
 				"http://localhost:#{porto}"
 			else
 				"https://#{nimi}.herokuapp.com"
-		familias: (nome)-> # g.c() ->
-			for ki in kinds
-				if nome in kinds[ki].hosts
-					return ki
-	) ({nome,gente,url,familias})-> g.c(
-		duerme: ({kind,gente,puedo})->
-			for host of kinds[kind].hosts
-				gente(host).presta(web:0,bot:0)
-					fina: (re)->
-						g.m "#{host} dormido"
-					erro: (er)->
-						g.m {er}
-						g.m "no se durmió #{host}"
-						g.pera(60*1000) ->
-							puedo()
-		ci: familias nome
-	) ({duerme,ci})->
+	) ({nome,gente,url})-> 
 		gente: gente
 		nome: nome
-		familia: ci
 		version: process.env.HEROKU_RELEASE_VERSION
 		url: url
 		local: local
@@ -94,23 +77,6 @@
 						dame("#{url()}/#{dónde}").toca erro: ->
 							g.m "tocando"
 							g.pera(60*1000) vive
-		viv: -> g.c(
-			hogar: gente(familia)
-		) ({hogar})->
-			g.cronica(10*60*1000) g.r (puedo)-> -> g.tempo(hora: -4) (tempo)->
-				for kind of kinds
-					unless nome of kinds[kind].hosts
-						unless kinds[kind].horario(tempo)
-							duerme
-								kind: kind
-								gente: hogar
-					else
-						reino = kind
-				unless kinds[reino].horario(tempo)
-					duerme
-						kind: reino
-						gente: hogar
-				else puedo()
 		vive: (horas)-> 
 			for ki of kind
 				# kind[ki].gente = gente(ki)
