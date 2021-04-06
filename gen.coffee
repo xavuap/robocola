@@ -269,6 +269,9 @@
 			# argo fina llave jeto
 			# better
 			# jeto llave argos... fina # for curryfication
+			g.mostra jeto: Object.keys()
+			g.mostra fina: fina.toString()
+			g.mostra {argos,llave}
 			unless jeto[llave]?
 				jeto[llave] = fina argos...
 			jeto[llave]
