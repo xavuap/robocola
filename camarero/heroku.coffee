@@ -8,8 +8,8 @@
 				horario: ({semanario,mes})-> 
 					#mes isnt "febrero" and 
 					# mes is "marzo" or 
-					# no
 					(51630 > semanario > 1705)
+					no
 				hosts: 
 					robocolo: "robocola"
 					auyama: "radicalia"
@@ -19,8 +19,8 @@
 				token: "a00b0637-fae6-42e0-8829-2a3604d315fa"
 				horario: ({semanario,mes})-> 
 					# mes is "febrero" or not 
-					# no
 					not (51630 > semanario > 1705)
+					no
 				hosts:
 					robocola: "robocolo"
 					radicalia: "auyama"
@@ -28,7 +28,9 @@
 					# usolurac: "carulosu"
 			morosudo:
 				token: "e93f8b23-2561-4c10-bfa7-1b30290d82c8"
-				horario: ({mes})-> no # mes is "abril" # "marzo"
+				horario: ({mes})->
+					no
+					mes is "abril" # "marzo"
 				hosts:
 					# morosudo: "carulosu"
 					robocoli: "robocola"
