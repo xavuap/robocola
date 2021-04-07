@@ -114,6 +114,16 @@
 			)
 	) (g)-> g.j( g.j(g) (g)->
 		sigma: g.quanta (a,f)-> a + f(0)
+		valeria: (jeto)-> (llave)-> (argos...)-> (fina)-> 
+			# argo fina llave jeto
+			# better
+			# jeto llave argos... fina # for curryfication
+			# g.mostra jeto: Object.keys(jeto)
+			# g.mostra fina: fina.toString()
+			# g.mostra {argos,llave}
+			unless jeto[llave]?
+				jeto[llave] = fina argos...
+			jeto[llave]
 	) (g)->
 		tempo: (local) -> g.claudia(
 			if local.tempo?
@@ -250,31 +260,21 @@
 		# 		booleana = no
 		# 		valeria = juana argos...
 		# 	valeria
-		valera: (claudia)-> (valeria)-> # asignación
-			unless valeria?
-				claudia
-			else
-				claudia = valeria
-		valeri: (claudia)->(fina)-> # (fina)-> fina(ki,moro)
-			g.claudia(
-				(meme)-> (valeria)->
-					unless valeria?
-						claudia
-					else
-						meme valeria
-			) fina
-		aleria: # (valeria)->
-			g.r (meme)-> (claudia)->
-		valeria: (jeto)-> (llave)-> (argos...)-> (fina)-> 
-			# argo fina llave jeto
-			# better
-			# jeto llave argos... fina # for curryfication
-			# g.mostra jeto: Object.keys(jeto)
-			# g.mostra fina: fina.toString()
-			# g.mostra {argos,llave}
-			unless jeto[llave]?
-				jeto[llave] = fina argos...
-			jeto[llave]
+		# valera: (claudia)-> (valeria)-> # asignación
+		# 	unless valeria?
+		# 		claudia
+		# 	else
+		# 		claudia = valeria
+		# valeri: (claudia)->(fina)-> # (fina)-> fina(ki,moro)
+		# 	g.claudia(
+		# 		(meme)-> (valeria)->
+		# 			unless valeria?
+		# 				claudia
+		# 			else
+		# 				meme valeria
+		# 	) fina
+		# aleria: # (valeria)->
+		# 	g.r (meme)-> (claudia)->
 		ki: -> g.claudia({}) (claudia)->(ki)-> (valeria)->
 			unless claudia[ki]?
 				claudia[ki] = valeria
@@ -462,3 +462,22 @@
 				tablas+cierre if props.length and Array.isArray(content)
 				'\xa0' unless props.length
 			].filter(Boolean).join("\n")
+		fac: g.claudia(g.valeria {0:1}) (valeria)->
+			g.r (fac)-> (ene)->
+				valeria(ene)(ene) (ene)->
+					ene * fac ene-1
+		fac: g.claudia(g.valeria {0:1}) (valeria)->
+			g.r (fac)-> (ene)->
+				valeria(ene)(ene) (ene)->
+					fac (ene-1)*ene
+		crescendo: (argos...)-> g.c(on,argos...) g.r (crescendo)-> (cc,a,b,cd...)->
+			g.c(cc and a > b) -> (cc)->
+				if cc and cd.length
+					crescendo cc, b,cd...
+				else cc
+		menguante: g.r (crescendo)-> (a,bcd...)-> 
+			if a > bcd[0]
+				if bcd[1]?
+					crescendo bcd... 
+				else on
+			else no

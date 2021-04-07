@@ -95,7 +95,7 @@
 							# for fio of kind[ki].hosts
 							g.c(Object.keys(kind[ki].hosts)...) g.r (nesta)-> (fio,fios...)->
 								# g.m g.n(ki) fio
-								unless horario and fio is nome
+								unless fio is nome #  horario and 
 									kind[ki].gente(fio).presta( bot: g.s(horario) {true:1,false:0} )
 										fina: (re)->
 											if horario
