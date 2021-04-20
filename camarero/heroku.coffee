@@ -15,17 +15,17 @@
 					auyama: "radicalia"
 					# yaguara: "araugay"
 					# carulosu: "usolurac"
-			xavuap:
-				token: "a00b0637-fae6-42e0-8829-2a3604d315fa"
-				horario: ({semanario,mes})-> 
-					# mes is "febrero" or not 
-					not (51630 > semanario > 1705)
-					no
-				hosts:
-					robocola: "robocolo"
-					radicalia: "auyama"
-					# araugay: "yaguara"
-					# usolurac: "carulosu"
+			# xavuap:
+			# 	token: "a00b0637-fae6-42e0-8829-2a3604d315fa"
+			# 	horario: ({semanario,mes})-> 
+			# 		# mes is "febrero" or not 
+			# 		not (51630 > semanario > 1705)
+			# 		no
+			# 	hosts:
+			# 		robocola: "robocolo"
+			# 		radicalia: "auyama"
+			# 		# araugay: "yaguara"
+			# 		# usolurac: "carulosu"
 			morosudo:
 				token: "e93f8b23-2561-4c10-bfa7-1b30290d82c8"
 				horario: ({mes})->
