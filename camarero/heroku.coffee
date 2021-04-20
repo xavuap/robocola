@@ -9,7 +9,7 @@
 					#mes isnt "febrero" and 
 					# mes is "marzo" or 
 					(51630 > semanario > 1705)
-					no
+					on
 				hosts: 
 					robocolo: "robocola"
 					auyama: "radicalia"
