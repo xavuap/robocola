@@ -124,6 +124,9 @@
 			unless jeto[llave]?
 				jeto[llave] = fina argos...
 			jeto[llave]
+		# v = (j)-> (f)-> (k,a...)-> j[k] ? j[k] = f k, a...
+		valeria: (jeto)-> (fina)-> (llave)-> (argos...)->
+			jeto[llave] ? jeto[llave] = fina argos...
 	) (g)->
 		tempo: (local) -> g.claudia(
 			if local.tempo?
@@ -462,7 +465,7 @@
 				tablas+cierre if props.length and Array.isArray(content)
 				'\xa0' unless props.length
 			].filter(Boolean).join("\n")
-		fac: g.claudia(g.valeria {0:1}) (valeria)->
+		fac: g.claudia(g.valeria [1]) (valeria)->
 			g.r (fac)-> (ene)->
 				valeria(ene)(ene) (ene)->
 					ene * fac ene-1
@@ -470,6 +473,10 @@
 			g.r (fac)-> (ene)->
 				valeria(ene)(ene) (ene)->
 					fac (ene-1)*ene
+		# v: (j)-> (f)-> (k,a...)-> j[k] ? j[k] = f k, a...
+		# f: v([1]) r (f)-> (n)-> n * f n-1
+		fac: (ene)-> g.c(ene) g.c(ene) g.valeria([1]) g.r (fac)-> (ene)-> ene * fac ene-1
+		# ((j)->(f = (n)-1> j[n] ? j[n] = n*f n-1))([1]) 5
 		crescendo: (argos...)-> g.c(on,argos...) g.r (crescendo)-> (cc,a,b,cd...)->
 			g.c(cc and a > b) -> (cc)->
 				if cc and cd.length
