@@ -34,6 +34,17 @@
 						catch 
 							n
 					else n
+		quanta: (efe)->
+			g.r (questa)-> (a,bc...,cc)->
+				unless +bc
+					questa bc..., efe a, cc
+				else
+					efe a, cc
+		quanta: (efe)->
+			g.r (questa)-> (a,bc...,cc)->
+				if a?
+					questa bc..., efe a, cc
+				else cc
 		#g.r (questa)-> (abc...)->
 		#quanta: (efe)->
 		#	(n)->
@@ -114,6 +125,8 @@
 			)
 	) (g)-> g.j( g.j(g) (g)->
 		sigma: g.quanta (a,f)-> a + f(0)
+		valeria: (jeto)-> (fina)-> (llave)-> (argos...)->
+			jeto[llave] ? jeto[llave] = fina argos...
 		valeria: (jeto)-> (llave)-> (argos...)-> (fina)-> 
 			# argo fina llave jeto
 			# better
@@ -125,8 +138,6 @@
 				jeto[llave] = fina argos...
 			jeto[llave]
 		# v = (j)-> (f)-> (k,a...)-> j[k] ? j[k] = f k, a...
-		valeria: (jeto)-> (fina)-> (llave)-> (argos...)->
-			jeto[llave] ? jeto[llave] = fina argos...
 	) (g)->
 		tempo: (local) -> g.claudia(
 			if local.tempo?
@@ -473,6 +484,8 @@
 			g.r (fac)-> (ene)->
 				valeria(ene)(ene) (ene)->
 					fac (ene-1)*ene
+		fac: (n)-> g.c([1..n]) g.quanta (a,f)-> a * f(1)
+		fac: v([]) (n)-> g.c([1..n]) g.q (a,f)-> a * f(1)
 		# v: (j)-> (f)-> (k,a...)-> j[k] ? j[k] = f k, a...
 		# f: v([1]) r (f)-> (n)-> n * f n-1
 		fac: (ene)-> g.c(ene) g.c(ene) g.valeria([1]) g.r (fac)-> (ene)-> ene * fac ene-1
