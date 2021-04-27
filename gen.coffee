@@ -484,8 +484,8 @@
 			g.r (fac)-> (ene)->
 				valeria(ene)(ene) (ene)->
 					fac (ene-1)*ene
+		# fac: g.v([]) (n)-> g.c([1..n]) g.q (a,f)-> a * f(1)
 		fac: (n)-> g.c([1..n]) g.quanta (a,f)-> a * f(1)
-		fac: g.v([]) (n)-> g.c([1..n]) g.q (a,f)-> a * f(1)
 		# v: (j)-> (f)-> (k,a...)-> j[k] ? j[k] = f k, a...
 		# f: v([1]) r (f)-> (n)-> n * f n-1
 		fac: (ene)-> g.c(ene) g.c(ene) g.valeria([1]) g.r (fac)-> (ene)-> ene * fac ene-1
