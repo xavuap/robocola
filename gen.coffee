@@ -25,15 +25,6 @@
 				fina[cada] = jeto[cada]
 			fina
 	) (g)-> g.j( g.j(g) (g)->
-		quanta: (efe)-> 
-			g.r (questa) -> (a,bc...)->
-				efe a, (n)->
-					if bc.length 
-						try
-							questa bc...
-						catch 
-							n
-					else n
 		quanta: (efe)->
 			g.r (questa)-> (a,bc...,cc)->
 				unless +bc
@@ -45,6 +36,15 @@
 				if a?
 					questa bc..., efe a, cc
 				else cc
+		quanta: (efe)-> 
+			g.r (questa) -> (a,bc...)->
+				efe a, (n)->
+					if bc.length 
+						try
+							questa bc...
+						catch 
+							n
+					else n
 		#g.r (questa)-> (abc...)->
 		#quanta: (efe)->
 		#	(n)->
