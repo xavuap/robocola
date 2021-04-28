@@ -501,3 +501,65 @@
 					crescendo bcd... 
 				else on
 			else no
+		guarda: (o)-> g.c({}) (claudia)->(ki)-> (valeria)-> 
+			if valeria?
+				claudia[ki] = valeria
+			else unless claudia[ki]?
+				claudia[ki] = o
+			else
+				claudia[ki]
+		guarda: (o)-> g.c({}) (claudia)->(ki)-> (valeria)-> 
+			claudia[ki] ? claudia[ki] = o
+			valeria? and claudia[ki] = valeria
+			claudia[ki]
+		guarda: (o)-> g.c({}) (claudia)->(ki)-> (valeria)-> 
+			valeria? and ( (claudia[ki] = valeria))
+			claudia[ki] ? claudia[ki] = o
+		###
+		guarda: (o)-> g.c({}) (claudia)->(ki,valeria)-> 
+			ki? ? claudia
+			valeria? and (return claudia[ki] = valeria)
+			claudia[ki] ? claudia[ki] = o
+		guarda: (o)-> g.c({}) (claudia)->(ki,valeria,valerias...)-> 
+			unless ki?
+				claudia
+			else if valeria?
+				claudia[ki] = enfilar valerias
+			else claudia[ki]?
+		guarda: (o)-> g.c({}) (claudia)->(ki,ruta...,valeria)-> 
+			g.c(claudia,ki,ruta...,valeria) g.r (guarda)-> (claudia,ki,valeria,ruta...)-> 
+				unless ki?
+					claudia
+				else
+					unless claudia[ki]?
+						claudia[ki] = enfilar ruta...,valeria
+					else
+						unless ruta.length
+							claudia[ki] = valeria
+						else
+							guarda claudia[ki], ruta...,valeria
+		guarda: (o)-> g.c({}) (claudia)->(tren...)-> 
+			g.c(claudia,tren...) g.r (guarda)-> (claudia,ki,valeria,ruta...)-> 
+			ki ? (return claudia)
+			claudia[ki] ? (return claudia[ki] = enfilar valeria, ruta...)
+			valeria ? (return claudia[ki])
+			guarda claudia[ki], valeria, ruta...
+
+		guarda: (o)-> g.c({}) (claudia)->(ki,valeria,valerias...)-> 
+			ki ? (return claudia)
+			claudia[ki] ? (return claudia[ki] = g.stitch(valeria) g.enfilar(valerias))
+
+		###
+		guarda: (o)-> g.c({}) (claudia)-> (ki,valeria)->
+			not (ki? or claudia) or not (valeria? or claudia[ki] ? claudia[ki] = o) or claudia[ki] = valeria
+		guarda: (o)-> g.c({}) (claudia)-> (ki,valeria)->
+			not ( ki? or claudia
+			) or not (valeria? or claudia[ki] ? claudia[ki] = o
+			) or claudia[ki] = valeria
+		guarda: (o)-> g.c({}) (claudia)-> (ki,valeria)->
+			not (ki ? claudia) or not (valeria? or claudia[ki] ? claudia[ki] = o) or claudia[ki] = valeria
+
+		guarda: (o)-> g.c({}) (claudia)-> (ki,valeria)->
+			unless ki? then claudia
+			else unless valeria? then claudia[ki] ? claudia[ki] = o
+			else sclaudia[ki] = valeria
