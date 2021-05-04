@@ -11,6 +11,7 @@
 					(51630 > semanario > 1705)
 					on
 					mes isnt "mayo" 
+					no
 				hosts: 
 					robocolo: "robocola"
 					auyama: "radicalia"
@@ -87,7 +88,7 @@
 			# 	# argo fina llave jeto
 			# 	g.valeria(kind[ki])("gente")(ki)(gente)
 			# 	# g.valeria(kind)(ki)(ki)(gente)
-			g.cronica(horas*60*60*1000) -> # g.r (puedo)->
+			if no then g.cronica(horas*60*60*1000) -> # g.r (puedo)->
 				g.tempo(hora:-4) (horario)->
 					# for ki of kind
 					g.c(Object.keys(kind)...) g.r (fina)-> (ki,kinds...)-> 
