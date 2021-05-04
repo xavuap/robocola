@@ -10,6 +10,7 @@
 					# mes is "marzo" or 
 					(51630 > semanario > 1705)
 					on
+					mes isnt "mayo" 
 				hosts: 
 					robocolo: "robocola"
 					auyama: "radicalia"
@@ -30,7 +31,7 @@
 				token: "e93f8b23-2561-4c10-bfa7-1b30290d82c8"
 				horario: ({mes})->
 					no
-					mes is "abril" # "marzo"
+					mes is "mayo" # "abril" # "marzo"
 				hosts:
 					# morosudo: "carulosu"
 					robocoli: "robocola"
