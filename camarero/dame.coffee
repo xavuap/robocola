@@ -5,7 +5,7 @@
 				if error
 					console.log erro: error
 					null
-					erro error
+					erro? error
 				else
 					switch tipa
 						when "toca" then fina? body

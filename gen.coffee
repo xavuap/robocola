@@ -25,6 +25,11 @@
 				fina[cada] = jeto[cada]
 			fina
 	) (g)-> g.j( g.j(g) (g)->
+		fernanda: (jota)-> (fina)->
+			g.claudia({}, Object.entries({jota...,""})...) g.r (refina)-> (arga,[nimi,vale],jotas...)->
+				vale?(
+					(a)->  refina {arga...,(g.nimi(nimi) a)... }, jotas... 
+				) ? fina arga
 		quanta: (efe)->
 			g.r (questa)-> (a,bc...,cc)->
 				unless +bc
@@ -351,6 +356,11 @@
 					refina
 					tempo
 				)
+		cronica: (tempo)-> g.r (refina)-> (fina)-> # 
+			fina()
+			g.pera(tempo) -> refina fina
+		# (tempo)-> (fina)->  g.c() g.r (refina)-> ->
+		# g.pera(tempo) -> refina fina
 		# perales: (tempo)->(argos...)-> # (finas...)->
 		# 	g.quanta (a,f)->
 		# 		a(argos...)
@@ -561,6 +571,8 @@
 		guarda: (o)-> g.c({}) (claudia)-> (ki,valeria)->
 			not ki? and claudia or not valeria? and (claudia[ki] or claudia[ki] = o) or claudia[ki] = valeria
 		guarda: (o)-> g.c({}) (claudia)-> (ki,valeria)->
+			not ki? and claudia or not valeria? and claudia[ki] ?= o or claudia[ki] = valeria
+		guarda: (o)-> g.c({}) (claudia)-> (ki,valeria)->
 			not ki? and claudia or not valeria? and (
 				claudia[ki] or claudia[ki] = o
 			) or claudia[ki] = valeria
@@ -572,3 +584,5 @@
 			unless ki? then claudia
 			else unless valeria? then claudia[ki] ? claudia[ki] = o
 			else claudia[ki] = valeria
+		guarda: (o)-> g.c({}) (claudia)-> (ki,valeria)-> 
+			(ki? and claudia[ki] = valeria ? claudia[ki] ? o) or claudia
