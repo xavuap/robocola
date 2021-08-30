@@ -124,10 +124,8 @@
 					if patria?[ala] is alien[ala]
 						delete patria[ala]			# borra de patria los comunes con alien
 		pera: (tempo)-> (fina)->
-			setTimeout(
-				-> fina tempo
-				tempo
-			)
+			setTimeout fina, tempo
+			# -> fina tempo
 	) (g)-> g.j( g.j(g) (g)->
 		sigma: g.quanta (a,f)-> a + f(0)
 		valeria: (jeto)-> (fina)-> (llave)-> (argos...)->
@@ -380,6 +378,7 @@
 				a(argos...) and f(on)
 		may: (argos...)->
 			g.quanta (a,f)-> 
+				# g.mostra g.tetas {a}
 				a(argos...) or f(no)
 		mezclar: g.quanta (a,f)-> {a...,f({})...}
 		xuan: (argos...)->
