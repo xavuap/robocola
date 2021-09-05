@@ -1,11 +1,14 @@
 
-	module.exports = (g)-> ({cheerio})-> g.c(require("request")) (dame)->
+	module.exports = (g)-> ({cheerio,axios})-> g.c(require("request")) (dame)->
 		g.c((uri)->(tipa)->({fina,erro})->
+			# axios.get uri
 			(dame uri, (error,response,body)->
+				# .catch (error)->
 				if error
 					console.log erro: error
 					null
 					erro? error
+				# .then (body)-> # g.c(JSON.stringify body) (body)->
 				else
 					switch tipa
 						when "toca" then fina? body
