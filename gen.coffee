@@ -510,6 +510,18 @@
 					crescendo bcd... 
 				else on
 			else no
+		crescendo: g.r (crescendo)-> (a,b,cd...)->
+			if b?
+				a < b and crescendo b,cd...
+			else on
+		menguante: g.r (menguante)-> (a,b,cd...)->
+			if b?
+				a > b > menguante b, cd...
+			else -Infinity
+		crescendo: g.r (crescendo)-> (a,b,cd...)->
+			if b?
+				a < b < crescendo b, cd...
+			else Infinity
 		guarda: (o)-> g.c({}) (claudia)->(ki)-> (valeria)-> 
 			if valeria?
 				claudia[ki] = valeria
