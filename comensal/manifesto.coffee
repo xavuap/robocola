@@ -4,8 +4,8 @@
 		display: "fullscreen"
 		icon: [
 			src: "icon/fox-icon.png"
-      		# sizes: "192x192"
-      		type: "image/png"
+			# sizes: "192x192"
+			type: "image/png"
 		]
 		name: "robocola"
 		start_url: "/"
