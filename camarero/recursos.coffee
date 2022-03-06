@@ -6,6 +6,7 @@
 			claudia: anime: {}
 			dozo: require("./dozo")(g)
 			wisa: require("../wisa")(g)
+			manifesto: require "../comensal/manifesto"
 			# dame: require("./dame")
 			# meta: require("./heroku") g
 			# dl: require("youtube-dl")
@@ -30,6 +31,8 @@
 										"no vendor"
 										sirvo.tren.join(" ")
 									].join "\n"
+						when "manifesto"
+							sirvo.json r.manifesto
 						else
 							# sirvo.tren[2] ?= ""
 							anime.tonal
