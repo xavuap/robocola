@@ -79,10 +79,11 @@
 							r.arepa
 								nimi: "🎦⏬"
 								toki: "es"
+								manifesto: "manifesto"
 								icono: (html)-> html(
 									link: null
 									rel: "icon"
-									type: "svg+xml" # "image/jpeg"
+									type: "image/jpeg" # "svg+xml" # 
 									href: "" # "#{sirvo.location.origin}/sverige/palmita"
 								) null
 								#css: [

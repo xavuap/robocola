@@ -28,6 +28,12 @@
 						v.icono? html
 						# <link rel="icon" type="image/png" href="http://example.com/image.png" />
 					].concat(
+						v.manifesto and ( html
+							link: null
+							rel: "manifest"
+							href: v.manifesto
+						) or []
+					).concat(
 						for hoja in v.css ? []
 							html(
 								link: null
