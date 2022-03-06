@@ -33,6 +33,8 @@
 									].join "\n"
 						when "manifesto"
 							sirvo.json r.manifesto
+						when "imaga"
+							r.dozo.leer("imaga.jpg").bin sirvo.jpg
 						else
 							# sirvo.tren[2] ?= ""
 							anime.tonal

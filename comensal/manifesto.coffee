@@ -3,9 +3,9 @@
 		background_color: "#008888"
 		display: "fullscreen"
 		icon: [
-			src: "png"
+			src: "imaga"
 			# sizes: "192x192"
-			type: "image/png"
+			type: "image/jpg"
 		]
 		name: "robocola"
 		start_url: "/"
