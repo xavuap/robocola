@@ -32,7 +32,7 @@
 							link: null
 							rel: "manifest"
 							href: v.manifesto
-						)() or []
+						)(null) or []
 					).concat(
 						for hoja in v.css ? []
 							html(
