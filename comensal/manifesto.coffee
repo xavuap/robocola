@@ -1,6 +1,6 @@
 
 	module.exports =
-		background_color: "#008888"
+		background_color: "#880000"
 		display: "fullscreen"
 		icon: [
 			src: "imaga"
