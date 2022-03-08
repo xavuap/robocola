@@ -84,7 +84,7 @@
 									link: null
 									rel: "icon"
 									type: "image/jpeg" # "svg+xml" # 
-									href: "" # "#{sirvo.location.origin}/sverige/palmita"
+									href: "imaga" # "#{sirvo.location.origin}/sverige/palmita"
 								) null
 								#css: [
 								#	"#{sirvo.location.origin}/vendor/spin/css"
